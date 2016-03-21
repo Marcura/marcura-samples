@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<countries>
+   <country>
+      <code>JE</code>
+      <id>1</id>
+      <name>JerseyChannels Island</name>
+   </country>
+   <country>
+      <code>AE</code>
+      <id>2</id>
+      <name>United Arab Emirates</name>
+   </country>
+   <country>
+      <code>AG</code>
+      <id>3</id>
+      <name>Antigua</name>
+   </country>
+</countries>

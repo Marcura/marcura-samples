@@ -1,0 +1,20 @@
+[
+  {
+    "id" : 1,
+    "code" : "JE",
+    "name" : "JerseyChannels Island"
+  },
+  
+  {
+    
+    "id" : 2,
+    "code" : "AE",
+    "name" : "United Arab Emirates"
+  },
+  
+  {
+    "id" : 3,
+    "code" : "AG",
+    "name" : "Antigua"  
+  }
+]

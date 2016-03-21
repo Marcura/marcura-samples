@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sanctions>
+	<sanction>
+		<code>DANG</code>
+		<id>1</id>
+		<name>Dangerous Goods</name>
+		<types>
+			<type>
+				<code>IMPORT</code>
+			</type>
+			<type>
+				<code>EXPORT</code>
+			</type>
+		</types>
+		<updated>2015-11-26T13:22:37Z</updated>
+	</sanction>
+	<sanction>
+		<code>EURUSBAN</code>
+		<countries>
+			<country>
+				<code>RU</code>
+			</country>
+		</countries>
+		<id>2</id>
+		<name>EU Russia Import Ban HS codes</name>
+		<types>
+			<type>
+				<code>IMPORT</code>
+			</type>
+		</types>
+		<updated>2015-11-26T13:22:37Z</updated>
+	</sanction>
+	<sanction>
+		<code>EUEXPNCOR</code>
+		<countries>
+			<country>
+				<code>KP</code>
+			</country>
+		</countries>
+		<id>3</id>
+		<name>EU Sanctions against Export North Korea</name>
+		<types>
+			<type>
+				<code>EXPORT</code>
+			</type>
+		</types>
+		<updated>2015-11-26T13:22:37Z</updated>
+	</sanction>
+</sanctions>

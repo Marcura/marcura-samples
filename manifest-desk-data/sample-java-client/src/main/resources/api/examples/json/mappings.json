@@ -1,0 +1,25 @@
+[
+	{
+		"id": 1,
+		"hscode": "020725",
+		"sanctions": [
+			{
+				"code": "EURUSBAN"
+			}
+		]
+	},
+
+	{
+		"id": 2,
+		"hscode": "020727",
+		"sanctions": [
+			{
+				"code": "EURUSBAN"
+			},
+
+			{
+				"code": "RUTR"
+			}
+		]
+	}
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "id" : 1,
+    "code" : "020725",
+    "description" : "Frozen turkeys of the species domesticus, not cut into pieces"
+  },
+  {
+    "id" :2,
+    "code" : "020727",
+    "description" : "Frozen cuts and edible offal of turkeys of the species domesticus"
+  },  
+  {
+    "id" : 3,
+    "code" : "0208",
+    "description" : "Other meat and edible meat offal, fresh, chilled or frozen."
+  }
+]

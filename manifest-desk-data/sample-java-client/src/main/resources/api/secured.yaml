@@ -1,0 +1,7 @@
+description: APIs that require to be secured
+queryParameters:
+  token:
+    description: token that should have been acquired when performing login
+    type: string
+    example: AQIC5wM2LY4SfcxZ4iz5XigqlVPWhTaCn5qjQWSrxUsYTXg
+    required: true

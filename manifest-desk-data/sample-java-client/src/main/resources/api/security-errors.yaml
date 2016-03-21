@@ -1,0 +1,16 @@
+description: Common failure response definitions for all operations that require authorisation.
+responses:
+  401:
+    description: User not authenticated.
+    body:
+      application/json:
+        example: !include ./examples/json/error.json
+      application/xml:
+        example: !include ./examples/xml/error.xml
+  403:
+    description: The current user is not authorised to perform the requested operation.
+    body:
+      application/json:
+        example: !include ./examples/json/error.json
+      application/xml:
+        example: !include ./examples/xml/error.xml

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings>
+	<mapping>
+		<hscode>020725</hscode>
+		<id>1</id>
+		<sanctions>
+			<sanction>
+				<code>EURUSBAN</code>
+			</sanction>
+		</sanctions>
+	</mapping>
+	<mapping>
+		<hscode>020727</hscode>
+		<id>2</id>
+		<sanctions>
+			<sanction>
+				<code>EURUSBAN</code>
+			</sanction>
+			<sanction>
+				<code>RUTR</code>
+			</sanction>
+		</sanctions>
+	</mapping>
+</mappings>

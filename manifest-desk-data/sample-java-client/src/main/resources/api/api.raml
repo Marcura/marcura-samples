@@ -1,0 +1,104 @@
+#%RAML 0.8
+baseUri: http://mocksvc.mulesoft.com/mocks/d8faf736-3ec9-43d3-95dc-15d704796463
+title: Manifest-Desk-Data
+version: 0.1
+mediaType: application/json
+
+traits:
+  - secured: !include secured.yaml
+  - securityErrors: !include security-errors.yaml
+  - defaultErrors: !include default-errors.yaml
+
+/users/{userId}/sessions:
+  uriParameters:
+    userId:
+      description: The user identifier
+      type: string
+  post:
+    is: [securityErrors, defaultErrors]
+    description: Create a user session by loging in
+    body:
+      application/json:
+        example: !include examples/json/login.json
+      application/xml:
+        example: !include examples/xml/login.xml
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/json/user.json
+          application/xml:
+            example: !include examples/xml/user.xml
+          
+/users/current:
+  get:
+    is: [secured, securityErrors, defaultErrors]
+    description: etrieve current user details
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/json/user.json
+          application/xml:
+            example: !include examples/xml/user.xml
+            
+/countries:
+  get:
+    is: [secured, securityErrors, defaultErrors]
+    description: List of all countries with their location code
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/json/countries.json
+          application/xml:
+            example: !include examples/xml/countries.xml
+/sanctions:
+  get:
+    is: [secured, securityErrors, defaultErrors]
+    description: List of all sanctions with countries, and sanction type
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/json/sanctions.json
+          application/xml:
+            example: !include examples/xml/sanctions.xml
+          
+/hscodes:
+  get:
+    queryParameters:
+      hscodeType:
+        required: true
+        enum: ["UN", "EU", "US"]
+        default: "UN"
+        example: "UN"
+        description: Which HS Codes to be used from the provided list. Current options are UN, EU and US.
+    is: [secured, securityErrors, defaultErrors]
+    description: List of all HS Codes with UN, EU and US codes
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/json/hscodes.json
+          application/xml:
+            example: !include examples/xml/hscodes.xml
+          
+/mappings:
+  get:
+    queryParameters:
+      hscodeType:
+        required: true
+        enum: ["UN", "EU", "US"]
+        default: "UN"
+        example: "UN"
+        description: Which HS Codes to be used from the provided list. Current options are UN, EU and US.
+    is: [secured, securityErrors, defaultErrors]
+    description: List of HS Codes with sactions applied
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/json/mappings.json
+          application/xml:
+            example: !include examples/xml/mappings.xml

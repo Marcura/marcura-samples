@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hscodes>
+   <hscode>
+      <code>020725</code>
+      <description>Frozen turkeys of the species domesticus, not cut into pieces</description>
+      <id>1</id>
+   </hscode>
+   <hscode>
+      <code>020727</code>
+      <description>Frozen cuts and edible offal of turkeys of the species domesticus</description>
+      <id>2</id>
+   </hscode>
+   <hscode>
+      <code>0208</code>
+      <description>Other meat and edible meat offal, fresh, chilled or frozen.</description>
+      <id>3</id>
+   </hscode>
+</hscodes>

@@ -1,0 +1,23 @@
+description: Common failure response definitions for all operations.
+responses:
+  400:
+    description: A validation error occurred.
+    body:
+      application/json:
+        example: !include ./examples/json/error.json
+      application/xml:
+        example: !include ./examples/xml/error.xml
+  404:
+    description: Unable to find the resource with the given id.
+    body:
+      application/json:
+        example: !include ./examples/json/error.json
+      application/xml:
+        example: !include ./examples/xml/error.xml
+  500:
+    description: An unexpected error occurred.
+    body:
+      application/json:
+        example: !include ./examples/json/error.json
+      application/xml:
+        example: !include ./examples/xml/error.xml

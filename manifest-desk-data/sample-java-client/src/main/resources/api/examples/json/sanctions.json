@@ -1,0 +1,56 @@
+[
+	{
+		"id": 1,
+		"code": "DANG",
+		"name": "Dangerous Goods",
+		"types": [
+			{
+				"code": "IMPORT"
+			},
+
+			{
+				"code": "EXPORT"
+			}
+		],
+
+		"updated": "2015-11-26T13:22:37Z"
+	},
+
+	{
+		"id": 2,
+		"code": "EURUSBAN",
+		"name": "EU Russia Import Ban HS codes",
+		"countries": [
+			{
+				"code": "RU"
+			}
+		],
+
+		"types": [
+			{
+				"code": "IMPORT"
+			}
+		],
+
+		"updated": "2015-11-26T13:22:37Z"
+	},
+
+	{
+		"id": 3,
+		"code": "EUEXPNCOR",
+		"name": "EU Sanctions against Export North Korea",
+		"countries": [
+			{
+				"code": "KP"
+			}
+		],
+
+		"types": [
+			{
+				"code": "EXPORT"
+			}
+		],
+
+		"updated": "2015-11-26T13:22:37Z"
+	}
+]

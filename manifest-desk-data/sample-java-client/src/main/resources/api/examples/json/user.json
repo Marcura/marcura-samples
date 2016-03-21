@@ -1,0 +1,10 @@
+{
+  "username": "username",
+  "fullName": "User Test",
+  "email": "u.test@marcura.com",
+  "company": {
+      "id": "157",
+      "name": "Test Company"
+  },
+  "token": "AQIC5wM2LY4SfcwrclsBs04FcdDGMY4GI3nWeu9MkY3e0Hs.*AAJTSQACMDIAAlMxAAIwMQ..*"
+}
