@@ -29,7 +29,7 @@ namespace WindowsFormsApplication1
         private void btnLogin_Click(object sender, EventArgs e)
         {
             //Login and save user details
-            user = disNotificationClient.login(new NotificationPoller.loginType { username = "<enter username here>", password = "<enter password here>" });
+            user = disNotificationClient.login(new NotificationPoller.loginType { username = txtUsername.Text, password = txtPassword.Text });
             txtConsole.Text += (user.token + "\n");
             btnPoll.Enabled = true;
         }
@@ -44,7 +44,7 @@ namespace WindowsFormsApplication1
                 OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = tokenProperty;
 
                 //poll for notifications
-                NotificationPoller.DaDeskEventNotificationsType notifications = disNotificationClient.poll("<enter principal ID here>");
+                NotificationPoller.DaDeskEventNotificationsType notifications = disNotificationClient.poll(txtPrincipalId.Text);
                 //Converting notifications to XML ONLY for display purposes. Here you can work with the .net objects directly
                 txtConsole.Text += (convertToXml(notifications) + "\n");
             }

@@ -31,6 +31,9 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnPoll = new System.Windows.Forms.Button();
             this.txtConsole = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtPrincipalId = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -56,18 +59,46 @@
             // 
             // txtConsole
             // 
-            this.txtConsole.Location = new System.Drawing.Point(55, 36);
+            this.txtConsole.Location = new System.Drawing.Point(55, 114);
             this.txtConsole.Multiline = true;
             this.txtConsole.Name = "txtConsole";
             this.txtConsole.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtConsole.Size = new System.Drawing.Size(324, 268);
+            this.txtConsole.Size = new System.Drawing.Size(324, 190);
             this.txtConsole.TabIndex = 2;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(55, 28);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(155, 20);
+            this.txtUsername.TabIndex = 3;
+            this.txtUsername.Text = "username";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(55, 75);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(155, 20);
+            this.txtPassword.TabIndex = 4;
+            this.txtPassword.Text = "password";
+            // 
+            // txtPrincipalId
+            // 
+            this.txtPrincipalId.Location = new System.Drawing.Point(247, 28);
+            this.txtPrincipalId.Name = "txtPrincipalId";
+            this.txtPrincipalId.Size = new System.Drawing.Size(131, 20);
+            this.txtPrincipalId.TabIndex = 5;
+            this.txtPrincipalId.Text = "principalId";
             // 
             // frmDispClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(440, 383);
+            this.Controls.Add(this.txtPrincipalId);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.txtConsole);
             this.Controls.Add(this.btnPoll);
             this.Controls.Add(this.btnLogin);
@@ -83,6 +114,9 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnPoll;
         private System.Windows.Forms.TextBox txtConsole;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtPrincipalId;
     }
 }
 
