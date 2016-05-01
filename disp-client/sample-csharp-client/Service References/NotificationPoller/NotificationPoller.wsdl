@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.marcura.com/dis/notifications" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="NotificationPoller" targetNamespace="http://www.marcura.com/dis/notifications" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="http://www.marcura.com/dis/notifications/schema" targetNamespace="http://www.marcura.com/dis/notifications/schema" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="login" nillable="true" type="tns:loginType" />
+      <xs:element name="user" nillable="true" type="tns:userType" />
+      <xs:complexType name="loginType">
+        <xs:sequence>
+          <xs:element form="qualified" name="username" type="xs:string" />
+          <xs:element form="qualified" name="password" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="userType">
+        <xs:sequence>
+          <xs:element form="qualified" name="username" type="xs:string" />
+          <xs:element form="qualified" name="fullName" type="xs:string" />
+          <xs:element form="qualified" name="email" type="xs:string" />
+          <xs:element form="qualified" name="company">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element form="qualified" name="id" type="xs:integer" />
+                <xs:element form="qualified" name="name" type="xs:string" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element form="qualified" name="token" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:ns1="http://www.dadesk.com/dis/schema" xmlns:ns2="http://www.marcura.com/dis/notifications/schema" elementFormDefault="qualified" targetNamespace="http://www.marcura.com/dis/notifications" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://www.dadesk.com/dis/schema" />
+      <xs:import namespace="http://www.marcura.com/dis/notifications/schema" />
+      <xs:element name="login" type="tns:login" />
+      <xs:element name="loginResponse" type="tns:loginResponse" />
+      <xs:element name="poll" type="tns:poll" />
+      <xs:element name="pollResponse" type="tns:pollResponse" />
+      <xs:complexType name="poll">
+        <xs:sequence>
+          <xs:element name="principalId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="pollResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:daDeskEventNotifications" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="login">
+        <xs:sequence>
+          <xs:element name="credentials" type="ns2:loginType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="loginResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns2:user" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://www.dadesk.com/dis/schema" elementFormDefault="qualified" targetNamespace="http://www.dadesk.com/dis/schema" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="DaDesk_Notification" nillable="true" type="tns:DaEventNotificationType" />
+      <xs:element name="daDeskEventNotification" nillable="true" type="tns:DaDeskEventNotificationType" />
+      <xs:element name="daDeskEventNotifications" type="tns:DaDeskEventNotificationsType" />
+      <xs:complexType name="DaDeskEventNotificationsType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="daDeskEventNotification" type="tns:DaDeskEventNotificationType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DaDeskEventNotificationType">
+        <xs:sequence>
+          <xs:element name="principleId" type="xs:int" />
+          <xs:element name="interfaceUniqueReference" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="portCallId" type="xs:int" />
+          <xs:element minOccurs="0" name="DaApprovalNotification" type="tns:DaApprovalNotificationType" />
+          <xs:element minOccurs="0" name="cancelPortcallNotification" type="tns:CancelPortcallNotificationType" />
+          <xs:element minOccurs="0" name="updatePortcallNotification" type="tns:UpdatePortcallNotificationType" />
+          <xs:element minOccurs="0" name="agentAppointmentNotification" type="tns:AgentAppointmentNotificationType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DaApprovalNotificationType">
+        <xs:sequence>
+          <xs:element name="invoiceId" type="xs:string" />
+          <xs:element name="daReference" type="xs:string" />
+          <xs:element name="daType" type="xs:string" />
+          <xs:element name="daEvent" type="xs:string" />
+          <xs:element name="actor" type="tns:actorType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="actorType">
+        <xs:sequence>
+          <xs:element name="actorID" type="xs:string" />
+          <xs:element name="actionDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="actorLevel" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CancelPortcallNotificationType">
+        <xs:sequence>
+          <xs:element name="portCallState" type="xs:string" />
+          <xs:element name="actor" type="tns:actorType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UpdatePortcallNotificationType">
+        <xs:sequence>
+          <xs:element name="actor" type="tns:actorType" />
+          <xs:element minOccurs="0" name="ETAchange" type="tns:ETAchangeType" />
+          <xs:element minOccurs="0" name="agentChange" type="tns:agentChangeType" />
+          <xs:element minOccurs="0" name="portChange" type="tns:portChangeType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ETAchangeType">
+        <xs:sequence>
+          <xs:element name="originalETA" type="xs:dateTime" />
+          <xs:element name="newETA" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="agentChangeType">
+        <xs:sequence>
+          <xs:element name="originalAgentID" nillable="true" type="xs:string" />
+          <xs:element name="newAgentID" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="portChangeType">
+        <xs:sequence>
+          <xs:element name="originalPortID" type="xs:string" />
+          <xs:element name="newPortID" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AgentAppointmentNotificationType">
+        <xs:sequence>
+          <xs:element name="invoiceId" type="xs:string" />
+          <xs:element name="daReference" type="xs:string" />
+          <xs:element name="daType" type="xs:string" />
+          <xs:element name="daEvent" type="xs:string" />
+          <xs:element name="actor" type="tns:actorType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DaEventNotificationType">
+        <xs:all>
+          <xs:element name="principleId" type="xs:int" />
+          <xs:element name="interfaceUniqueReference" type="xs:string" />
+          <xs:element name="daType" type="xs:string" />
+          <xs:element name="daEvent" type="xs:string" />
+          <xs:element minOccurs="0" name="invoiceId" type="xs:string" />
+          <xs:element minOccurs="0" name="daReference" type="xs:string" />
+          <xs:element minOccurs="0" name="dateOfApproval" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="approverID" type="xs:string" />
+        </xs:all>
+      </xs:complexType>
+      <xs:simpleType name="daTypeType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="PDA" />
+          <xs:enumeration value="FDA" />
+          <xs:enumeration value="DDA" />
+          <xs:enumeration value="SDA" />
+          <xs:enumeration value="VI" />
+          <xs:enumeration value="APR" />
+          <xs:enumeration value="SDAFX" />
+          <xs:enumeration value="VIFX" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="daEventType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="APPROVED" />
+          <xs:enumeration value="CANCELLED" />
+          <xs:enumeration value="UPDATED" />
+          <xs:enumeration value="PENDING APPROVAL" />
+          <xs:enumeration value="APPOINTED" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="portCallSimpleStateType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="UNDERCONSTRUCTION" />
+          <xs:enumeration value="PREVESSELARRIVED" />
+          <xs:enumeration value="PORTCALLINPROGRESS" />
+          <xs:enumeration value="POSTVESSELDEPARTURE" />
+          <xs:enumeration value="CANCELLED" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="loginResponse">
+    <wsdl:part name="parameters" element="tns:loginResponse" />
+  </wsdl:message>
+  <wsdl:message name="poll">
+    <wsdl:part name="parameters" element="tns:poll" />
+  </wsdl:message>
+  <wsdl:message name="login">
+    <wsdl:part name="parameters" element="tns:login" />
+  </wsdl:message>
+  <wsdl:message name="pollResponse">
+    <wsdl:part name="parameters" element="tns:pollResponse" />
+  </wsdl:message>
+  <wsdl:portType name="NotificationPoller">
+    <wsdl:operation name="poll">
+      <wsdl:input name="poll" message="tns:poll" />
+      <wsdl:output name="pollResponse" message="tns:pollResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <wsdl:input name="login" message="tns:login" />
+      <wsdl:output name="loginResponse" message="tns:loginResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NotificationPollerSoapBinding" type="tns:NotificationPoller">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="poll">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="poll">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="pollResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="login">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="loginResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NotificationPoller">
+    <wsdl:port name="NotificationPollerPort" binding="tns:NotificationPollerSoapBinding">
+      <soap:address location="http://cuat.esb-1.marcura.com/notifications" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
