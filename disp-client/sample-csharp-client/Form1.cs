@@ -18,7 +18,7 @@ namespace WindowsFormsApplication1
         }
 
         //Simple method to convert notifications to XML for display purposes
-        private String convertToXml(NotificationPoller.DaDeskEventNotificationsType notifications)
+        private String convertToXml(NotificationPoller.DaDeskEventNotificationType[] notifications)
         {
             StringWriter textWriter = new StringWriter();
             XmlSerializer serialiser = new XmlSerializer(notifications.GetType());
@@ -44,7 +44,7 @@ namespace WindowsFormsApplication1
                 OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = tokenProperty;
 
                 //poll for notifications
-                NotificationPoller.DaDeskEventNotificationsType notifications = disNotificationClient.poll(txtPrincipalId.Text);
+                NotificationPoller.DaDeskEventNotificationType[] notifications = disNotificationClient.poll(txtPrincipalId.Text);
                 //Converting notifications to XML ONLY for display purposes. Here you can work with the .net objects directly
                 txtConsole.Text += (convertToXml(notifications) + "\n");
             }

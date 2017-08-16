@@ -1,0 +1,9 @@
+C:\Java\git\marcura-samples\disp-client\sample-csharp-client\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Java\git\marcura-samples\disp-client\sample-csharp-client\bin\Debug\WindowsFormsApplication1.exe
+C:\Java\git\marcura-samples\disp-client\sample-csharp-client\bin\Debug\WindowsFormsApplication1.pdb
+C:\Java\git\marcura-samples\disp-client\sample-csharp-client\obj\Debug\DispClientApplication.csprojResolveAssemblyReference.cache
+C:\Java\git\marcura-samples\disp-client\sample-csharp-client\obj\Debug\WindowsFormsApplication1.frmDispClient.resources
+C:\Java\git\marcura-samples\disp-client\sample-csharp-client\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Java\git\marcura-samples\disp-client\sample-csharp-client\obj\Debug\DispClientApplication.csproj.GenerateResource.Cache
+C:\Java\git\marcura-samples\disp-client\sample-csharp-client\obj\Debug\WindowsFormsApplication1.exe
+C:\Java\git\marcura-samples\disp-client\sample-csharp-client\obj\Debug\WindowsFormsApplication1.pdb

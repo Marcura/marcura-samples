@@ -83,10 +83,20 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Service References\NotificationPoller\NotificationPoller.wsdl" />
-    <None Include="Service References\NotificationPoller\WindowsFormsApplication1.NotificationPoller.DaDeskEventNotificationsType.datasource">
+    <None Include="Service References\NotificationPoller\NotificationPoller1.wsdl" />
+    <None Include="Service References\NotificationPoller\WindowsFormsApplication1.NotificationPoller.DaDeskEventNotificationType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationPoller\WindowsFormsApplication1.NotificationPoller.historyInnerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationPoller\WindowsFormsApplication1.NotificationPoller.historyResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\NotificationPoller\WindowsFormsApplication1.NotificationPoller.loginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NotificationPoller\WindowsFormsApplication1.NotificationPoller.peekResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\NotificationPoller\WindowsFormsApplication1.NotificationPoller.pollResponse.datasource">

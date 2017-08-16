@@ -19,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://cuat.esb-1.marcura.com/notifications?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://disp.cuat.marcura.com/notifications?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="NotificationPoller.wsdl" MetadataType="Wsdl" ID="693a7556-3a30-44d1-812f-086a8477afc6" SourceId="1" SourceUrl="https://cuat.esb-1.marcura.com/notifications?wsdl" />
+    <MetadataFile FileName="NotificationPoller1.wsdl" MetadataType="Wsdl" ID="6d7c2b66-84e2-4c06-ab4e-cfae337c3148" SourceId="1" SourceUrl="https://disp.cuat.marcura.com/notifications?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
