@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{325A1A41-DBEA-4161-A113-B64DCAD000CF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Marcura.Dis.Client.Sample</RootNamespace>
+    <AssemblyName>Marcura.Dis.Client.Sample</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainDialog.Designer.cs">
+      <DependentUpon>MainDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\DIS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MainDialog.resx">
+      <DependentUpon>MainDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Service References\DIS\Activity.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\Activity1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\ActualInvoiceDetail.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\ActualInvoiceOutput.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\Address.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\Agent.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\Agent1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\APRInvoiceDetail.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\APRInvoiceOutput.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\BankDetail.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\CancelPortCall.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\Cargo.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\Charterer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\ContactDetail.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\ContactDetail1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\CostCategory.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\CostItemLabel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\CreatePortCall.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\Currency.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\CustomerSpecificCostCentre.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\CustomerSpecificLabel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\DA-DeskCostCategory.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\DAStatus.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\dataexchange.wsdl" />
+    <None Include="Service References\DIS\DAType.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\DDAInvoiceDetail.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\DDAInvoiceOutput.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\DisSoapFault.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\Errorlog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\ExchangeRate.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\ExpenseCategory.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\GeneralUtility.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\Invoice.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\InvoiceHeader.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\InvoiceLine.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\InvoiceLineWithVoucher.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\Invoices.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\Marcura.Dis.Client.Sample.DIS.ActualInvoiceOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DIS\Marcura.Dis.Client.Sample.DIS.ActualInvoiceOutputType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DIS\Marcura.Dis.Client.Sample.DIS.APRInvoiceOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DIS\Marcura.Dis.Client.Sample.DIS.APRInvoiceOutputType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DIS\Marcura.Dis.Client.Sample.DIS.CancelPortCallResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DIS\Marcura.Dis.Client.Sample.DIS.cancelPortCallResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DIS\Marcura.Dis.Client.Sample.DIS.createPortCallResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DIS\Marcura.Dis.Client.Sample.DIS.createPortCallResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DIS\Marcura.Dis.Client.Sample.DIS.DDAInvoiceOutputType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DIS\Marcura.Dis.Client.Sample.DIS.errorLogResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DIS\Marcura.Dis.Client.Sample.DIS.getDDAInvoiceOutputResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DIS\Marcura.Dis.Client.Sample.DIS.getPortcallStatusInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DIS\Marcura.Dis.Client.Sample.DIS.PortcallStatusInfoResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DIS\Marcura.Dis.Client.Sample.DIS.ProformaInvoiceOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DIS\Marcura.Dis.Client.Sample.DIS.ProformaInvoiceOutputType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DIS\Marcura.Dis.Client.Sample.DIS.updatePortCallResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DIS\Marcura.Dis.Client.Sample.DIS.updatePortCallResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DIS\PaymentInstruction.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\PortCall.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\PortCallCategory.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\PortcallStatusInfo.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\ProformaInvoiceDetail.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\ProformaInvoiceOutput.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\QuantityUnit.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\ServiceLocation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\ServiceLocation1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\StandardCostItem.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\Supplier.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\ThirdPartyIUR.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\TradingCompany.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\TypeOfActivity.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\UpdatePortCall.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\UserId.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\Vessel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\Vessel1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\VesselOperatingCompany.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\VesselOperatingCompany1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\VesselOwner.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\Voucher.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\Voyage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DIS\Voyage1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\DIS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DIS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DIS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DIS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
