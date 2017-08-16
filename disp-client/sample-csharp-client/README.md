@@ -8,6 +8,14 @@
 - This should start the process of going to the WSDL externally and generate the client classes
 - Rebuild the project by clicking Build, Rebuild DispClientApplication
 
+# Configuration
+
+Configuration is all done in App.config file. This section will explain which fields need to be changed to get your sample C# client up and running. 
+- Open App.config
+- Under &lt;client&gt; tag, update the &lt;endpoint&gt; by changing the address attribute
+  - The one set up in GitHub is the test URL
+  - address="https://disp.cuat.marcura.com/notifications"
+
 # Running
 
 To run the application, please make sure that first you would have obtained the username and password set from DA-Desk. Once you have all the requirments, you can run the application as follows:
