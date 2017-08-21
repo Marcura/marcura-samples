@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%-5p %d{ISO8601} [%t] %c: %m%n" />
+		</Console>
+		
+	</Appenders>
+
+	<Loggers>
+
+		<!-- CXF is used for web services -->
+		<AsyncLogger name="org.apache.cxf" level="INFO" />
+		<AsyncLogger name="org.apache.wss4j" level="INFO" />
+
+		<!-- Reduce startup noise -->
+		<AsyncLogger name="org.springframework.beans.factory" level="WARN" />
+		
+		<AsyncRoot level="INFO">
+			<AppenderRef ref="Console" />
+		</AsyncRoot>
+
+	</Loggers>
+
+</Configuration>

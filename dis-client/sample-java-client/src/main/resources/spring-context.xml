@@ -1,0 +1,96 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:property-placeholder location="classpath:dis-client.properties" />
+
+	<!-- Password callback class for private key passwords -->
+	<bean id="passwordCallback" class="com.marcura.dis.PasswordCallback">
+		<property name="passwords">
+			<map>
+				<!-- key is the alias, value is the password -->
+				<entry key="${dis-client.private-key.alias}" value="${dis-client.private-key.password}" />
+			</map>
+		</property>
+	</bean>
+
+	<!-- Define the DIS username interceptor -->
+	<bean id="usernameInterceptor" class="com.marcura.dis.DisUsernameOutInterceptor">
+		<!-- configure the pricipal id for your company here -->
+		<property name="principalId" value="${dis-client.principalId}" />
+	</bean>
+
+	<!-- Configure WSS4J outbound security -->
+	<bean id="outInterceptor" class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor">
+		<constructor-arg>
+			<map>
+				<entry key="action" value="Signature Encrypt Timestamp" />
+				<entry key="passwordCallbackRef" value-ref="passwordCallback" />
+
+				<!-- Timestamp Config -->
+				<entry key="timeToLive" value="60" />
+
+				<!-- Signature Config -->
+				<!-- Note that signature is performed using your private key -->
+				<entry key="signatureUser" value="${dis-client.private-key.alias}" />
+				<entry key="signaturePropFile" value="dis-client-wss4j.properties" />
+
+				<!-- Encryption Config -->
+				<!-- Note that encryption is performed using DIS public key -->
+				<entry key="encryptionUser" value="${dis-client.public-key.alias}" />
+				<entry key="encryptionPropFile" value="dis-client-wss4j.properties" />
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<!-- Configure WSS4J inbound security -->
+	<bean id="inInterceptor" class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+		<constructor-arg>
+			<map>
+				<entry key="action" value="Signature Encrypt Timestamp" />
+				<entry key="passwordCallbackRef" value-ref="passwordCallback" />
+
+				<!-- Timestamp Config -->
+				<entry key="timeToLive" value="60" />
+
+				<!-- Signature Config -->
+				<!-- Note that signature validation is performed using DIS public key -->
+				<entry key="signatureUser" value="${dis-client.public-key.alias}" />
+				<entry key="signaturePropFile" value="dis-client-wss4j.properties" />
+
+				<!-- Encryption Config -->
+				<!-- Note that decryption is performed using your private key -->
+				<entry key="encryptionUser" value="${dis-client.private-key.alias}" />
+				<entry key="decryptionPropFile" value="dis-client-wss4j.properties" />
+				<entry key="allowRSA15KeyTransportAlgorithm" value="true" />
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<!-- DIS Client Proxy. This is the class used to make the requests to the 
+		web service -->
+	<bean id="disClient" factory-bean="clientFactory" factory-method="create" />
+
+	<!-- Factory to create CXF JAX WS Proxy -->
+	<bean id="clientFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+		<property name="serviceClass" value="com.dadesk.dis.schema.DaDeskDataExchange" />
+		<property name="address" value="${dis.url}" />
+		<property name="outInterceptors">
+			<array>
+				<ref bean="usernameInterceptor" />
+				<ref bean="outInterceptor" />
+			</array>
+		</property>
+		<property name="inInterceptors">
+			<array>
+				<ref bean="inInterceptor" />
+			</array>
+		</property>
+	</bean>
+
+</beans>
