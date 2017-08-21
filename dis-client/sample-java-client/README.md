@@ -10,7 +10,7 @@
 mvn package
 ```
 
-The project can as well be imported into your favourite IDE. In case of Eclipse with M2E support, the following steps will guid you to import the project:
+The project can as well be imported into your favourite IDE. In case of Eclipse with M2E support, the following steps will guide you to import the project:
 
 - Click File
 - Import
@@ -41,7 +41,7 @@ Configuration is all done in dis-client.properties and dis-client-wss4j.properti
   
 # Running the Application
 
-The application can be executing by running `com.marcura.dis.SampleClient` which will do theh following:
+The application can be executing by running `com.marcura.dis.SampleClient` which will do the following:
 
 - Start Spring application
 - Get CXF DIS Client with all WS-Security configuration
@@ -79,6 +79,7 @@ Please note that this application requires setting up of certificates on DA-Desk
 
 # Other References
 
+- http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html
 - http://cxf.apache.org/docs/how-do-i-develop-a-client.html
 - http://cxf.apache.org/docs/ws-security.html
 - https://ws.apache.org/wss4j/using.html

@@ -36,8 +36,8 @@
 							XSDs from the internet. Once the generation is completed at least once, it 
 							can be switched off during development so it does not slow down the process. 
 							This can be done by setting <phase> to none from generate-sources -->
-<!-- 						<phase>generate-sources</phase> -->
-						<phase>none</phase>
+						<phase>generate-sources</phase>
+<!-- 						<phase>none</phase> -->
 						<configuration>
 							<sourceRoot>${project.build.directory}/generated/cxf</sourceRoot>
 							<wsdlOptions>
