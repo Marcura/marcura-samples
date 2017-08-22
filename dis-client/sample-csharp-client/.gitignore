@@ -5,3 +5,5 @@ Service\ References/DIS/*.datasource
 Service\ References/DIS/*.wsdl
 Service\ References/DIS/*.cs
 Service\ References/DIS/*.svcinfo
+*.sln
+.vs
