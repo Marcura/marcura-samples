@@ -27,17 +27,17 @@ If your favourite IDE will try to run `mvn generate-sources` every time the save
 Configuration is all done in dis-client.properties and dis-client-wss4j.properties file. This section will explain which fields need to be changed to get your sample Java client up and running. This section will assume that the certificates have already been imported into a Java keystore and the keystore is available in the classpath of the sample application.
 
 - Open dis-client.properties
-- Set dis.url with the Production or Test DIS URL
+- Set `dis.url` with the Production or Test DIS URL
   - The default one is set to the Test URL
-- Set dis-client.principalId to the provided Principal ID
-- Set dis-client.private-key.alias to the alias of your private key
+- Set `dis-client.principalId` to the provided Principal ID
+- Set `dis-client.private-key.alias` to the alias of your private key
   - Alias is the name of this private key within your keystore
-- Set dis-client.private-key.password with the private key password
-- Set dis-client.public-key.alias with the alias of DIS public certificate
+- Set `dis-client.private-key.password` with the private key password
+- Set `dis-client.public-key.alias` with the alias of DIS public certificate
   - Alias is the name of this public key within your keystore
 - Open dis-client-wss4j.properties
-- Set org.apache.wss4j.crypto.merlin.keystore.file to the keystore
-- Set org.apache.wss4j.crypto.merlin.keystore.password to the keystore password
+- Set `org.apache.wss4j.crypto.merlin.keystore.file` to the keystore
+- Set `org.apache.wss4j.crypto.merlin.keystore.password` to the keystore password
   
 # Running the Application
 
@@ -64,7 +64,7 @@ The sample application is a Spring application where the Spring configuration ca
   - PrincipalId is injected through Spring properties
 - in/outInterceptor
   - WSS4J class with DIS necessary security configurations
-  - Applying Signature, Encryption and Timestamp WS-* security features
+  - Applying Signature, Encryption and Timestamp WS-\* security features
   - passwordCallback class defined above is used to be able to access private key password
   - Requires configuration of signature and encryption key aliases
 - clientFactory
