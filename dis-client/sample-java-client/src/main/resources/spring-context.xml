@@ -78,6 +78,8 @@
 
 	<!-- Factory to create CXF JAX WS Proxy -->
 	<bean id="clientFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+		<!-- The service class is automatically generated from the WSDL through the 
+			CXF codegen plugin -->
 		<property name="serviceClass" value="com.dadesk.dis.schema.DaDeskDataExchange" />
 		<property name="address" value="${dis.url}" />
 		<property name="outInterceptors">
