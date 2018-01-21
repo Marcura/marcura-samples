@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
-
 
 namespace Marcura.Dis.Client.Sample
 {
@@ -24,6 +16,8 @@ namespace Marcura.Dis.Client.Sample
 
             try {
                 disClient = new DIS.DaDeskDataExchangeClient();
+
+                //This is not required in real implementations. This is there to show the XML request and response on the screen
                 disClient.Endpoint.EndpointBehaviors.Add(new DisInspectorBehavior(txtRequest, txtResponse));
             }
             catch(Exception exc)
