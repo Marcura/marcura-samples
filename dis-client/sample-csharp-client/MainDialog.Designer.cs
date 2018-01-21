@@ -36,6 +36,10 @@
             this.txtInterfaceUniqueRef = new System.Windows.Forms.TextBox();
             this.btnCreatePortCall = new System.Windows.Forms.Button();
             this.btnGetProforma = new System.Windows.Forms.Button();
+            this.txtRequest = new System.Windows.Forms.TextBox();
+            this.txtResponse = new System.Windows.Forms.TextBox();
+            this.lblRequest = new System.Windows.Forms.Label();
+            this.lblResponse = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnGetPortCallStatus
@@ -116,11 +120,51 @@
             this.btnGetProforma.UseVisualStyleBackColor = true;
             this.btnGetProforma.Click += new System.EventHandler(this.btnGetProforma_Click);
             // 
+            // txtRequest
+            // 
+            this.txtRequest.Location = new System.Drawing.Point(17, 190);
+            this.txtRequest.Multiline = true;
+            this.txtRequest.Name = "txtRequest";
+            this.txtRequest.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtRequest.Size = new System.Drawing.Size(279, 396);
+            this.txtRequest.TabIndex = 73;
+            // 
+            // txtResponse
+            // 
+            this.txtResponse.Location = new System.Drawing.Point(318, 190);
+            this.txtResponse.Multiline = true;
+            this.txtResponse.Name = "txtResponse";
+            this.txtResponse.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtResponse.Size = new System.Drawing.Size(279, 396);
+            this.txtResponse.TabIndex = 74;
+            // 
+            // lblRequest
+            // 
+            this.lblRequest.AutoSize = true;
+            this.lblRequest.Location = new System.Drawing.Point(17, 171);
+            this.lblRequest.Name = "lblRequest";
+            this.lblRequest.Size = new System.Drawing.Size(47, 13);
+            this.lblRequest.TabIndex = 75;
+            this.lblRequest.Text = "Request";
+            // 
+            // lblResponse
+            // 
+            this.lblResponse.AutoSize = true;
+            this.lblResponse.Location = new System.Drawing.Point(318, 170);
+            this.lblResponse.Name = "lblResponse";
+            this.lblResponse.Size = new System.Drawing.Size(55, 13);
+            this.lblResponse.TabIndex = 76;
+            this.lblResponse.Text = "Response";
+            // 
             // MainDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(609, 163);
+            this.ClientSize = new System.Drawing.Size(609, 624);
+            this.Controls.Add(this.lblResponse);
+            this.Controls.Add(this.lblRequest);
+            this.Controls.Add(this.txtResponse);
+            this.Controls.Add(this.txtRequest);
             this.Controls.Add(this.btnGetProforma);
             this.Controls.Add(this.btnCreatePortCall);
             this.Controls.Add(this.txtInterfaceUniqueRef);
@@ -151,6 +195,10 @@
         private System.Windows.Forms.TextBox txtInterfaceUniqueRef;
         private System.Windows.Forms.Button btnCreatePortCall;
         private System.Windows.Forms.Button btnGetProforma;
+        private System.Windows.Forms.TextBox txtRequest;
+        private System.Windows.Forms.TextBox txtResponse;
+        private System.Windows.Forms.Label lblRequest;
+        private System.Windows.Forms.Label lblResponse;
     }
 }
 

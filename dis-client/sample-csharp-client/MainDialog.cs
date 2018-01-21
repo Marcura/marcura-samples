@@ -24,6 +24,7 @@ namespace Marcura.Dis.Client.Sample
 
             try {
                 disClient = new DIS.DaDeskDataExchangeClient();
+                disClient.Endpoint.EndpointBehaviors.Add(new DisInspectorBehavior(txtRequest, txtResponse));
             }
             catch(Exception exc)
             {
