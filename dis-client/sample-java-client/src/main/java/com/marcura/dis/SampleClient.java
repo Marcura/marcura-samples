@@ -10,6 +10,8 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.namespace.QName;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -19,6 +21,8 @@ import com.dadesk.dis.schema.GetPortcallStatusInfoRequest;
 import com.dadesk.dis.schema.PortcallStatusInfoResponseType;
 
 public class SampleClient {
+	
+	private static Logger log = LoggerFactory.getLogger(SampleClient.class);
 
 	/**
 	 * Creates and sends a request based on the assumption that developer will be
@@ -38,8 +42,8 @@ public class SampleClient {
 		PortcallStatusInfoResponseType portcallStatusResponse = disClient.getPortcallStatusInfo(portcallStatusRequest);
 
 		// Print the portcall reference number from the response
-		System.out.println("Reference number: " + portcallStatusResponse.getPortCallRef());
-		System.out.println("Vessel: " + portcallStatusResponse.getVessel().getName());
+		log.info("Reference number: " + portcallStatusResponse.getPortCallRef());
+		log.info("Vessel: " + portcallStatusResponse.getVessel().getName());
 	}
 
 	/**
@@ -73,7 +77,7 @@ public class SampleClient {
 		marshaller.marshal(new JAXBElement<PortcallStatusInfoResponseType>(
 				new QName("http://www.dadesk.com/dis/schema", "getPortcallStatusInfoResponse"),
 				PortcallStatusInfoResponseType.class, portcallStatusResponse), baos);
-		System.out.println(baos.toString());
+		log.info(baos.toString());
 
 	}
 
@@ -85,7 +89,9 @@ public class SampleClient {
 		// Get the CXF client
 		DaDeskDataExchange disClient = (DaDeskDataExchange) context.getBean("disClient");
 
+		log.info("Running Java Sample");
 		javaSample(disClient);
+		log.info("Running XML Sample");
 		xmlSample(disClient);
 
 		// Close Spring
