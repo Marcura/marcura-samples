@@ -42,7 +42,7 @@
 							<sourceRoot>${project.build.directory}/generated/cxf</sourceRoot>
 							<wsdlOptions>
 								<wsdlOption>
-									<wsdl>https://cuat.da-desk.com/disweb/1.0/spring-ws/DaDeskDataExchange/dataexchange.wsdl</wsdl>
+									<wsdl>https://disweb.cuat.da-desk.com/disweb/1.0/spring-ws/DaDeskDataExchange/dataexchange.wsdl</wsdl>
 									<bindingFiles>
 										<bindingFile>${basedir}/src/main/resources/bindings.xml</bindingFile>
 									</bindingFiles>
