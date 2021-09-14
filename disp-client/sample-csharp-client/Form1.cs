@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Net;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Windows.Forms;
@@ -14,11 +15,16 @@ namespace WindowsFormsApplication1
 
         public frmDispClient()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+
+            //force the application to use TLSv1.2 for HTTPS connection as TLSv1.0 is the default for .NET 4.5 and below
+            //DIS Poller does not support SSL, TLSv1 and TLSv1.1 anymore. TLSv1.2 is the minimun requirement
+            //more information on TLS setup for .NET framework available here: https://blogs.perficient.com/2016/04/28/tls-1-2-and-net-support
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
 
         //Simple method to convert notifications to XML for display purposes
-        private String convertToXml(NotificationPoller.DaDeskEventNotificationType[] notifications)
+        private String convertToXml(NotificationPoller.DaDeskEventNotificationsType notifications)
         {
             StringWriter textWriter = new StringWriter();
             XmlSerializer serialiser = new XmlSerializer(notifications.GetType());
@@ -44,7 +50,7 @@ namespace WindowsFormsApplication1
                 OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = tokenProperty;
 
                 //poll for notifications
-                NotificationPoller.DaDeskEventNotificationType[] notifications = disNotificationClient.poll(txtPrincipalId.Text);
+                NotificationPoller.DaDeskEventNotificationsType notifications = disNotificationClient.poll(txtPrincipalId.Text);
                 //Converting notifications to XML ONLY for display purposes. Here you can work with the .net objects directly
                 txtConsole.Text += (convertToXml(notifications) + "\n");
             }
