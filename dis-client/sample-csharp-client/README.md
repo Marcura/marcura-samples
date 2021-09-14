@@ -21,7 +21,7 @@ Configuration is all done in App.config file. This section will explain which fi
   - The one set up in GitHub is the test certificate
   - This can be changed to look up by subject but make sure that only either test or production certificate is available in your certificate manager otherwise it will fail due to finding both
 -  Update &lt;wsse:Username&gt;50001&lt;/wsse:Username&gt; with the principal identifier that was given to you
-- The endpoint by default it is set to the CUAT test environment address="https://cuat.da-desk.com/disweb/1.0/spring-ws/" inside the tag &lt;endpoint&gt;
+- The endpoint by default it is set to the CUAT test environment address="https://disweb.cuat.da-desk.com/disweb/1.0/spring-ws/" inside the tag &lt;endpoint&gt;
   - Update this as necessary to point to test or production environment
   
   ## Note
