@@ -18,7 +18,7 @@
 		<cxf.version>3.1.12</cxf.version>
 		<spring.version>4.1.9.RELEASE</spring.version>
 		<wss4j.version>2.1.10</wss4j.version>
-		<log4j.version>2.13.3</log4j.version>
+		<log4j.version>2.15.0</log4j.version>
 		<disruptor.version>3.3.6</disruptor.version>
 	</properties>
 
