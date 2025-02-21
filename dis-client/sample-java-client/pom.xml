@@ -13,13 +13,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<cxf.version>3.1.12</cxf.version>
-		<spring.version>4.1.9.RELEASE</spring.version>
-		<wss4j.version>2.1.10</wss4j.version>
-		<log4j.version>2.13.3</log4j.version>
-		<disruptor.version>3.3.6</disruptor.version>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+		<cxf.version>3.6.5</cxf.version>
+		<spring.version>4.3.15.RELEASE</spring.version>
+		<wss4j.version>2.4.3</wss4j.version>
+		<log4j.version>2.24.3</log4j.version>
+		<disruptor.version>3.4.4</disruptor.version>
 	</properties>
 
 	<build>
@@ -37,7 +37,7 @@
 							can be switched off during development so it does not slow down the process. 
 							This can be done by setting <phase> to none from generate-sources -->
 						<phase>generate-sources</phase>
-<!-- 						<phase>none</phase> -->
+ 						<!--phase>none</phase--> 
 						<configuration>
 							<sourceRoot>${project.build.directory}/generated/cxf</sourceRoot>
 							<wsdlOptions>
@@ -93,6 +93,12 @@
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-ws-security</artifactId>
 			<version>${cxf.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.xml.bind</groupId>
+					<artifactId>jaxb-api</artifactId>
+				</exclusion>
+            </exclusions>
 		</dependency>
 
 		<!-- WSS4J for Web Service sercurity -->
@@ -131,18 +137,6 @@
 			<artifactId>disruptor</artifactId>
 			<version>${disruptor.version}</version>
 		</dependency>
-
-
-		<!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
-		<dependency>
-		    <groupId>javax.xml.bind</groupId>
-		    <artifactId>jaxb-api</artifactId>
-		    <version>2.3.1</version>
-		</dependency>
-		
 		
 	</dependencies>
-
-
-
 </project>
