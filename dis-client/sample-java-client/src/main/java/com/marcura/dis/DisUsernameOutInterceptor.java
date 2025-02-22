@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.namespace.QName;
 
 import org.apache.cxf.binding.soap.SoapMessage;
@@ -15,6 +13,9 @@ import org.apache.cxf.interceptor.Fault;
 import org.apache.cxf.jaxb.JAXBDataBinding;
 import org.apache.cxf.phase.Phase;
 import org.springframework.util.StringUtils;
+
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.annotation.XmlElement;
 
 /**
  * SOAP Interceptor to add the DIS Principal ID to the request. Header will look
