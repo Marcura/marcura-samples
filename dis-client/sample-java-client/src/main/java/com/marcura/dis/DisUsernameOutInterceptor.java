@@ -84,7 +84,7 @@ public class DisUsernameOutInterceptor extends AbstractSoapInterceptor {
 	 */
 	@Override
 	public void handleMessage(SoapMessage message) throws Fault {
-		if (StringUtils.hasText(principalId)) {
+		if (!StringUtils.hasText(principalId)) {
 			throw new Fault(new Exception("Principal ID cannot be empty"));
 		}
 
